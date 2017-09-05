@@ -6,27 +6,30 @@ using UnityEngine.UI;
 public class gameLogic : MonoBehaviour {
 
 	public Text  fpHpLbl, spHpLbl;
+	
 	//public Image pColor;
 
 	public int fpHealth, spHealth;
 	public bool strokeNumber;
 	int attackPower = 10;
-	bool fpAlive, spAlive;
+	int repareValue = 10;
+	//bool fpAlive, spAlive;
 
 	void Start () {
 		fpHealth = 100;
-		fpAlive = true;
+		//fpAlive = true;
 		fpHpLbl.text = "Здоровье: " + fpHealth;
 
 		spHealth = 100;
-		spAlive = true;
+		//spAlive = true;
 		spHpLbl.text = "Здоровье: " + spHealth;
 
 		strokeNumber = true;					//true = первый игрок
 		//pColor.color = new Color(167,248,255);
 	}
 
-	void Update () {
+	void Update () 
+	{
 		
 	}
 
@@ -64,7 +67,21 @@ public class gameLogic : MonoBehaviour {
 			}
 		}
 	}
-
+	public void repareBtn()
+	{
+		if(strokeNumber)
+		{
+			fpHealth += repareValue;
+			fpHpLbl.text = "Здоровье: " + fpHealth;
+			strokeNumber = false;
+		}
+		else
+		{
+			spHealth += repareValue;
+			spHpLbl.text = "Здоровье: " + spHealth;
+			strokeNumber = true;
+		}
+	}
 	void deathScreen()
 	{
 
