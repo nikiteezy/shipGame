@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class gameLogic : MonoBehaviour {
 
 	public Text  fpHpLbl, spHpLbl;
+	public GameObject fShipImage, sShipImage;
 	
-	//public Image pColor;
 
 	public int fpHealth, spHealth;
 	public bool strokeNumber;
@@ -26,6 +26,7 @@ public class gameLogic : MonoBehaviour {
 
 		strokeNumber = true;					//true = первый игрок
 		//pColor.color = new Color(167,248,255);
+		imageScale();
 	}
 
 	void Update () 
@@ -47,6 +48,7 @@ public class gameLogic : MonoBehaviour {
 			{
 				spHpLbl.text = "Здоровье: " + spHealth;
 				strokeNumber = false;
+				imageScale();
 				//pColor.color = new Color(15,69,153);
 			}
 
@@ -63,6 +65,7 @@ public class gameLogic : MonoBehaviour {
 			{
 				fpHpLbl.text = "Здоровье: " + fpHealth;
 				strokeNumber = true;
+				imageScale();
 				//pColor.color = new Color(167,248,255);
 			}
 		}
@@ -74,13 +77,20 @@ public class gameLogic : MonoBehaviour {
 			fpHealth += repareValue;
 			fpHpLbl.text = "Здоровье: " + fpHealth;
 			strokeNumber = false;
+			imageScale();
 		}
 		else
 		{
 			spHealth += repareValue;
 			spHpLbl.text = "Здоровье: " + spHealth;
 			strokeNumber = true;
+			imageScale();
 		}
+	}
+	void imageScale()
+	{		
+		fShipImage.transform.localScale = new Vector2 (fpHealth*0.01f, fpHealth*0.01f);
+		sShipImage.transform.localScale = new Vector2 (spHealth*0.01f, spHealth*0.01f);
 	}
 	void deathScreen()
 	{

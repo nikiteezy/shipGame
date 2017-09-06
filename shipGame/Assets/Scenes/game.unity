@@ -643,6 +643,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpHpLbl: {fileID: 941073598}
   spHpLbl: {fileID: 1910564132}
+  fShipImage: {fileID: 1228649420}
+  sShipImage: {fileID: 1798794605}
   fpHealth: 0
   spHealth: 0
   strokeNumber: 0
