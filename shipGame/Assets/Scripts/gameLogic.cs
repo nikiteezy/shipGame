@@ -7,13 +7,10 @@ public class gameLogic : MonoBehaviour {
 
 	public Text  fpHpLbl, spHpLbl;
 	public GameObject fShipImage, sShipImage;
-	
 
 	public int fpHealth, spHealth;
 	public bool strokeNumber;
-	int attackPower = 10;
-	int repareValue = 10;
-	//bool fpAlive, spAlive;
+	int repareValue = 5;
 
 	void Start () {
 		fpHealth = 100;
@@ -28,16 +25,35 @@ public class gameLogic : MonoBehaviour {
 		//pColor.color = new Color(167,248,255);
 		imageScale();
 	}
-
 	void Update () 
-	{
-		
+	{	
 	}
-
-	public void attackBtn()
+	public void repareBtn()
+	{
+		if(strokeNumber)
+		{
+			fpHealth += repareValue;
+			fpHpLbl.text = "Здоровье: " + fpHealth;
+			strokeNumber = false;
+			imageScale();
+		}
+		else
+		{
+			spHealth += repareValue;
+			spHpLbl.text = "Здоровье: " + spHealth;
+			strokeNumber = true;
+			imageScale();
+		}
+	}
+	public void imageScale()
+	{		
+		fShipImage.transform.localScale = new Vector2 (fpHealth*0.01f, fpHealth*0.01f);
+		sShipImage.transform.localScale = new Vector2 (spHealth*0.01f, spHealth*0.01f);
+	}
+	public void attackLogic(int attackPower)//скрипт для нанесения урона
 	{
 		if (strokeNumber) 
-		{
+		{	
 			spHealth -= attackPower;
 			if (spHealth <= 0) 
 			{
@@ -70,30 +86,27 @@ public class gameLogic : MonoBehaviour {
 			}
 		}
 	}
-	public void repareBtn()
+	public void normalAttackBtn()//обычная атака
 	{
-		if(strokeNumber)
-		{
-			fpHealth += repareValue;
-			fpHpLbl.text = "Здоровье: " + fpHealth;
-			strokeNumber = false;
-			imageScale();
-		}
-		else
-		{
-			spHealth += repareValue;
-			spHpLbl.text = "Здоровье: " + spHealth;
-			strokeNumber = true;
-			imageScale();
-		}
+		attackLogic(5);
 	}
-	void imageScale()
-	{		
-		fShipImage.transform.localScale = new Vector2 (fpHealth*0.01f, fpHealth*0.01f);
-		sShipImage.transform.localScale = new Vector2 (spHealth*0.01f, spHealth*0.01f);
-	}
-	void deathScreen()
+	public void buckshotAttackBtn()//картечь
 	{
-
+		attackLogic(15);
+	}
+	public void chainAttackBtn()//ядра с цепями
+	{
+		attackLogic(10);
+	}
+	public void musketsAttackBtn()//мушкеты
+	{
+		attackLogic(1);
+	}
+	public void boardingAttackBtn()//абордаж
+	{
+		attackLogic(50);
+	}
+	public void deathScreen()
+	{
 	}
 }
