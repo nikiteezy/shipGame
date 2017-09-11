@@ -12,6 +12,21 @@ public class gameLogic : MonoBehaviour {
 	public bool strokeNumber;
 	int repareValue = 5;
 
+	Vector3 firstCPosition = new Vector3(-500,-225,0);
+	Vector3 secondCPosition = new Vector3(-300,-225,0);
+	Vector3 thirdCPosition = new Vector3(-100,-225,0);
+	Vector3 fourthCPosition = new Vector3(100,-225,0);
+	Vector3 fifthCPosition = new Vector3(300,-225,0);
+	Vector3 sixthCPosition = new Vector3(500,-225,0);
+
+	public GameObject firstCardBtn;
+	public GameObject secondCardBtn;
+	public GameObject thirditthCard;
+	public GameObject fourthCardBtn;
+	public GameObject fifthCardBtn;
+	public GameObject sixthCardBtn;
+
+
 	void Start () {
 		fpHealth = 100;
 		//fpAlive = true;
@@ -105,6 +120,20 @@ public class gameLogic : MonoBehaviour {
 	public void boardingAttackBtn()//абордаж
 	{
 		attackLogic(50);
+	}
+	public void firstCardPosition(Vector3 position)//получает вектор, на его место ставит карту из списка
+	{
+		int volume = Random.Range(0,2);
+		switch (volume)
+		{
+			case 0: break;
+			case 1: break;
+			case 2: break;
+		}
+	}
+	public void cardsPositions()
+	{
+
 	}
 	public void deathScreen()
 	{
