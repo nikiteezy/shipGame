@@ -650,7 +650,7 @@ MonoBehaviour:
   strokeNumber: 0
   firstCardBtn: {fileID: 1410813625}
   secondCardBtn: {fileID: 1506188739}
-  thirditthCard: {fileID: 1957587340}
+  thirdCardBtn: {fileID: 1957587340}
   fourthCardBtn: {fileID: 15009081}
   fifthCardBtn: {fileID: 209948990}
   sixthCardBtn: {fileID: 1558312877}

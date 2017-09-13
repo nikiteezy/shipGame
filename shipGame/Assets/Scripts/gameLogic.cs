@@ -21,7 +21,7 @@ public class gameLogic : MonoBehaviour {
 
 	public GameObject firstCardBtn;
 	public GameObject secondCardBtn;
-	public GameObject thirditthCard;
+	public GameObject thirdCardBtn;
 	public GameObject fourthCardBtn;
 	public GameObject fifthCardBtn;
 	public GameObject sixthCardBtn;
@@ -39,9 +39,33 @@ public class gameLogic : MonoBehaviour {
 		strokeNumber = true;					//true = первый игрок
 		//pColor.color = new Color(167,248,255);
 		imageScale();
+
+		startSetActiveFalse();
+		//testMeth ();
 	}
 	void Update () 
 	{	
+	}
+	void startSetActiveFalse()
+	{
+		firstCardBtn.SetActive(false);
+		secondCardBtn.SetActive(false);
+		thirdCardBtn.SetActive(false);
+		fourthCardBtn.SetActive(false);
+		fifthCardBtn.SetActive(false);
+		sixthCardBtn.SetActive(false);
+	}
+	public void startCardPosition(Vector3 position)//получает вектор, на его место ставит карту из списка
+	{
+		int volume = Random.Range(0,2);
+		switch (volume)
+		{
+			case 0: //fifthCardBtn.transform.Translate(fifthCPosition);
+			//firstCardBtn.transform.Translate(firstCardPosition);
+			break;
+			case 1: break;
+			case 2: break;
+		}
 	}
 	public void repareBtn()
 	{
@@ -121,16 +145,6 @@ public class gameLogic : MonoBehaviour {
 	{
 		attackLogic(50);
 	}
-	public void firstCardPosition(Vector3 position)//получает вектор, на его место ставит карту из списка
-	{
-		int volume = Random.Range(0,2);
-		switch (volume)
-		{
-			case 0: break;
-			case 1: break;
-			case 2: break;
-		}
-	}
 	public void cardsPositions()
 	{
 
@@ -138,4 +152,10 @@ public class gameLogic : MonoBehaviour {
 	public void deathScreen()
 	{
 	}
+	public void testMeth()
+	{
+		firstCardBtn.SetActive (true);
+		firstCardBtn.transform.localPosition = firstCPosition;
+	}
+	
 }
