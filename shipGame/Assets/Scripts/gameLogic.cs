@@ -41,7 +41,8 @@ public class gameLogic : MonoBehaviour {
 		imageScale();
 
 		startSetActiveFalse();
-		//testMeth ();
+		startCardPositoinMeth();
+		
 	}
 	void Update () 
 	{	
@@ -55,16 +56,26 @@ public class gameLogic : MonoBehaviour {
 		fifthCardBtn.SetActive(false);
 		sixthCardBtn.SetActive(false);
 	}
-	public void startCardPosition(Vector3 position)//получает вектор, на его место ставит карту из списка
+	void startCardPositoinMeth()
 	{
-		int volume = Random.Range(0,2);
+		cardPositionMeth(firstCPosition);
+		cardPositionMeth(secondCPosition);
+	}
+	public void cardPositionMeth(Vector3 position)//получает вектор, на его место ставит карту из списка
+	{
+		int volume = Random.Range(1,3);
+		
 		switch (volume)
 		{
-			case 0: //fifthCardBtn.transform.Translate(fifthCPosition);
-			//firstCardBtn.transform.Translate(firstCardPosition);
+			case 1: 
+			firstCardBtn.SetActive (true);
+			firstCardBtn.transform.localPosition = position;
 			break;
-			case 1: break;
-			case 2: break;
+
+			case 2:
+			secondCardBtn.SetActive (true); 
+			secondCardBtn.transform.localPosition = position;
+			break;
 		}
 	}
 	public void repareBtn()
